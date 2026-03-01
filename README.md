@@ -89,7 +89,9 @@ Default: `null`
 
 Description: the list of subnets which are added to the network
 
-Type: `list(object({
+Type:
+```hcl
+list(object({
     name         = optional(string)
     description  = optional(string)
     tags         = optional(list(string))
@@ -104,6 +106,7 @@ Type: `list(object({
     })))
     enable_private_dns = optional(bool)
     dns_nameservers    = optional(list(string))
-  }))`
+  }))
+```
 
 Default: `null`
