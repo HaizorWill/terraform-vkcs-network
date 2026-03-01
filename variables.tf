@@ -1,41 +1,49 @@
 variable "sdn" {
-  type    = string
-  default = "sprut"
+  type        = string
+  description = "The SDN of the network"
+  default     = "sprut"
 }
 
 variable "name" {
-  type    = string
-  default = null
+  type        = string
+  description = "The name of the network"
+  default     = null
 }
 
 variable "description" {
-  type    = string
-  default = null
+  type        = string
+  description = "The description of the network"
+  default     = null
 }
 
 variable "tags" {
-  type    = list(string)
-  default = []
+  type        = list(string)
+  description = "The list of tags for the network"
+  default     = []
 }
 
 variable "admin_state_up" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Controls the admin state of the network"
+  default     = true
 }
 
 variable "port_security_enabled" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Controls the state of port security on the network"
+  default     = true
 }
 
 variable "private_dns_domain" {
-  type    = string
-  default = "mcs.local."
+  type        = string
+  description = "The local DNS domain of the network"
+  default     = null
 }
 
 variable "value_specs" {
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  description = "The map of additional options of the network; refer to VK Cloud documentation for additional information"
+  default     = {}
 }
 
 variable "vkcs_services_access" {
@@ -60,5 +68,6 @@ variable "subnets" {
     enable_private_dns = optional(bool)
     dns_nameservers    = optional(list(string))
   }))
-  default = null
+  description = "The list of subnets which are added to the network"
+  default     = null
 }
