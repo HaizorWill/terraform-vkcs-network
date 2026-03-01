@@ -22,7 +22,7 @@ resource "vkcs_networking_subnet" "this" {
   gateway_ip  = each.value.gateway_ip
   enable_dhcp = each.value.enable_dhcp
   dynamic "allocation_pool" {
-    for_each = each.value.allocation_pool != null ? each.value.allocation_pool : []
+    for_each = each.value.allocation_pool
 
     content {
       start = allocation_pool.value.start
@@ -32,5 +32,4 @@ resource "vkcs_networking_subnet" "this" {
   enable_private_dns = each.value.enable_private_dns
   dns_nameservers    = each.value.dns_nameservers
 }
-
 
