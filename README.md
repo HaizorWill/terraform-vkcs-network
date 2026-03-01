@@ -4,6 +4,10 @@ Terraform module that creates a network with subnets in VK Cloud.
 
 It aims to provide a flexible and simplified way to create networks in VK Public Cloud.
 
+### Why bother if there is an official module for network creation?
+
+Official network module is a router-centric module, rather than network module. But in VK Cloud there are multiple router types, i.e. standard router and advanced router, so i decided to make a module that does not create any router at all for my purposes =)
+
 ## Features
 
 It supports creating:
@@ -113,3 +117,7 @@ list(object({
 ```
 
 Default: `null`
+
+## Contribution
+
+Feel free to contribute if you want to, i'd love to see it!
