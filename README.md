@@ -92,21 +92,24 @@ Description: the list of subnets which are added to the network
 Type:
 ```hcl
 list(object({
-    name         = optional(string)
-    description  = optional(string)
-    tags         = optional(list(string))
-    resource_key = optional(string)
-    cidr         = optional(string)
-    no_gateway   = optional(bool)
-    gateway_ip   = optional(string)
-    enable_dhcp  = optional(bool)
+    name          = optional(string)
+    description   = optional(string)
+    tags          = optional(list(string))
+    resource_key  = optional(string)
+    cidr          = optional(string)
+    subnetpool_id = optional(string)
+    prefix_length = optional(number)
+    no_gateway    = optional(bool)
+    gateway_ip    = optional(string)
+    enable_dhcp   = optional(bool)
     allocation_pool = optional(list(object({
       start = string
       end   = string
     })))
     enable_private_dns = optional(bool)
     dns_nameservers    = optional(list(string))
-  }))
+    value_specs        = optional(map(string))
+}))
 ```
 
 Default: `null`
