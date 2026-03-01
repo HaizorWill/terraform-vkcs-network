@@ -13,14 +13,16 @@ resource "vkcs_networking_network" "this" {
 resource "vkcs_networking_subnet" "this" {
   for_each = local.subnets
 
-  name        = each.value.name
-  description = each.value.description
-  tags        = each.value.tags
-  network_id  = vkcs_networking_network.this.id
-  cidr        = each.value.cidr
-  no_gateway  = each.value.no_gateway
-  gateway_ip  = each.value.gateway_ip
-  enable_dhcp = each.value.enable_dhcp
+  name          = each.value.name
+  description   = each.value.description
+  tags          = each.value.tags
+  network_id    = vkcs_networking_network.this.id
+  cidr          = each.value.cidr
+  subnetpool_id = each.value.subnetpool_id
+  prefix_length = each.value.prefix_length
+  no_gateway    = each.value.no_gateway
+  gateway_ip    = each.value.gateway_ip
+  enable_dhcp   = each.value.enable_dhcp
   dynamic "allocation_pool" {
     for_each = each.value.allocation_pool
 
@@ -31,5 +33,6 @@ resource "vkcs_networking_subnet" "this" {
   }
   enable_private_dns = each.value.enable_private_dns
   dns_nameservers    = each.value.dns_nameservers
+  value_specs        = each.value.value_specs
 }
 
