@@ -20,6 +20,7 @@ output "subnets" {
     cidr            = vkcs_networking_subnet.this[key].cidr
     gateway_ip      = vkcs_networking_subnet.this[key].gateway_ip
     allocation_pool = vkcs_networking_subnet.this[key].allocation_pool
+    dns_nameservers = vkcs_networking_subnet.this[key].dns_nameservers
     }
   }
 }
